@@ -19,32 +19,9 @@
     rel="stylesheet"
     />
 
-    <style>
-        .wrapper{
-            
-            padding: 50px;
-            background-color: rgb(34, 34, 34);
-        }
-        .header_wrapper{
-            background-color: rgb(34, 34, 34);
-            padding: 20px;
-        }
-        .City{
-            color: rgb(251, 203, 64);
-            font-family:Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 60px;
-        }
+    <link rel="stylesheet" href="style.css">
+    
 
-        .Clock{
-            color: rgb(251, 203, 64);
-            font-family:Verdana, Geneva, Tahoma, sans-serif;
-            background-color: rgb(34, 34, 34);
-            padding-left: 30%;
-            font-size: 150px;
-            
-        }
-
-    </style>
 
 </head>
 <body>
@@ -63,53 +40,36 @@
     <div class="row Clock">
         <div class="Clock_Hour" id="Clock">  </div>
     </div>
+    <h1>5111</h1>
 
     <!-- Set Alarm -->
 
 
         <input type="datetime-local" id="alarmTime"/>
-        <button onclick="setAlarm(this);" id="alarmButton">Set Alarm</button>
+        <button id="alarmButton">Set Alarm</button>
         <div id="alarmOptions" style ="display:none;">
         <button onClick="snooze();">Snooze 5 minutes</button>
         <button onclick="stopAlarm();">Stop Alarm</button>
+        
   
    
-
-
-
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
-<!-- clock logic -->
-    <script>
-
-        function update() {
-        var HourNow= moment().format('LTS')
-        $("#Clock").text(HourNow)
-        };
-
-        $(document).ready(function() {
-            setInterval(update, 1000);
-        })
-
-       
-
-        
-    </script>
-        
-        
-
 <!-- Alarm Script -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+
 <script>
-/* CONTROLLER */
-document.addEventListener("DOMContentLoaded", init);
+/* h */
+$("#alarmButton").on("click", init)
+
+// document.addEventListener("DOMContentLoaded", init);
 var h1;
 function init(){
+
+    console.log($("#alarmTime").val())
     h1 = document.querySelector("h1");
+
     const countdownInMS = 5000; //USER INPUT GOES HERE; WHEN THE ALARM WILL GO OFF [DATE/TIME IN MS ]
     setAlarmClock(countdownInMS, alarmFinished, showTimeRemaining);
   
@@ -139,31 +99,7 @@ function setAlarmClock(targetTimeInMS, finishedCallback, tickCallback){ //front-
 </script>
 
 
-<!-- Wheater API -->
-<script>
-var OneWordClimate
-
-    function CallWeather() {
-                var APICity = "Sydney";
-                console.log(APICity)
-                var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+APICity+"&units=imperial&appid=166a433c57516f51dfab1f7edaed8413";
-                $.ajax({
-                    url: queryURL,
-                    method: "GET"
-                }).then(function(response) {            
-                 OneWordClimate = response.weather[0].main
-                console.log(response)
-                console.log(OneWordClimate);
-            })
-        }
-    CallWeather()
-
-
-</script>
-
-<!--  Clock Script -->
-
-
+<script src="script.js"></script>
 
 </body>
 </html>

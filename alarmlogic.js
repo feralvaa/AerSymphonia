@@ -5,9 +5,6 @@
 document.addEventListener("DOMContentLoaded", init);
 var h1;
 
-
-
-
 function init() {
 
 	//+++++++++++Form addeventlistener method+++++++++++++++
@@ -40,8 +37,9 @@ function alarmFinished() {
 	h1.textContent = "Alarm Finished!";
 	// weatherAPIex(PLACEHOLDER);
 	geo2();
-	playSong(); 
+	// playSong(); 
 	
+	var OneWordClimate
 	}
 
                                                                                                                                                                  
@@ -50,7 +48,7 @@ function weatherAPIex(){
 };
 
 function playSong(){
-	var OneWordClimate.inner
+	// var OneWordClimate.inner
 	var weatherID =$(".WeatherResult").val()    
 	console.log(weatherID)
     
@@ -154,7 +152,8 @@ function update() {
 		  let long = position.coords.longitude;
 			$(".latitude").text(lat)
 			$(".longitude").text(long)
-
+			//calling weather API
+			geo2();
 		
 		  var OneWordClimate
 		  var currLocation;
@@ -199,9 +198,21 @@ geo1();
 		console.log(response)
 		console.log(OneWordClimate);
 		console.log(response.name);
-		$(".WeatherResult").text(response.weather[0].id)
-		debugger
-		})
+		//this is the weather icon asset
+		var img = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"
+		var image = $("<img>").attr({
+			src : img,
+			alt : "Weather Icon",
+			width : "250px",
+			class : "weatherImage"
+			})
+		$("#weatherDisplay").append(image);
 		
-	}
+		$(".WeatherResult").text(response.weather[0].id)
+		
+		//this is where the audio API
+		//https://developers.soundcloud.com/docs#search
+		//work on naming conventions, indentation, cleaner...
 
+		})
+	}

@@ -31,7 +31,20 @@ function update() {
     $(document).ready(function() {
         setInterval(update, 0);
     })
-
+    function latLon(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=eee2c7e90565ccc72ed33f1160353f32";
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response)
+            currentLoc = response.name;
+            dataStroage(response.name);// call the function for save the data
+            getCurrent(currentLoc);// call the the function for cureent weather
+        });
+    }
 
 
 

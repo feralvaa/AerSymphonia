@@ -12,7 +12,6 @@
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 60px;
 }
-
 .Clock{
     color: rgb(251, 203, 64);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -20,4 +19,26 @@
     padding-left: 30%;
     font-size: 150px;
     
+}
+
+.latitude {                   
+    display:none;
+  }
+
+.longitude {
+    display:none;
+}
+
+.WeatherResult{
+    display:none;
+
+} 
+
+.weatherImage{
+
+
+}
+
+#weatherDisplay{
+
 }
